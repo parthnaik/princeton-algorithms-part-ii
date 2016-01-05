@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.ST"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.Digraph"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.Bag"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.DirectedCycle"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.BreadthFirstDirectedPaths"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.Picture"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.FlowNetwork"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.FordFulkerson"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.FlowEdge"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.TrieSET"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.SET"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.In"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.Queue"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.BinaryStdOut"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+<fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.BinaryStdIn"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.StdOut"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+</qualifiedTypeNameHistroy>

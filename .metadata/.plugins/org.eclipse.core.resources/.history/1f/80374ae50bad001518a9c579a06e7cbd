@@ -1,0 +1,33 @@
+public class CircularSuffixArray {
+	// unit testing of the methods (optional)
+	public static void main(String[] args) {
+		
+	}
+	
+	// circular suffix array of s
+	public CircularSuffixArray(String s) {
+		if (s == null) throw new java.lang.NullPointerException();
+		this.s = s;
+		original = new String[length()];
+		sorted = new String[length()];
+		
+		
+	}
+	
+	// length of s
+    public int length() {
+    	s.length();
+    }
+    
+    // returns index of ith sorted suffix
+    public int index(int i) {
+    	if (i < 0 || i > length() - 1) throw new java.lang.IndexOutOfBoundsException();
+    }
+    
+    // Instance Variables
+    private String s;
+    private String[] original;
+    private String[] sorted;
+    
+    // Private Methods
+}

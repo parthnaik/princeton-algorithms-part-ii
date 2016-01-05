@@ -1,0 +1,74 @@
+import java.util.Arrays;
+
+import edu.princeton.cs.algs4.BinaryStdIn;
+import edu.princeton.cs.algs4.BinaryStdOut;
+
+public class BurrowsWheeler {
+	// if args[0] is '-', apply Burrows-Wheeler encoding
+    // if args[0] is '+', apply Burrows-Wheeler decoding
+    public static void main(String[] args) {
+    	
+    }
+	
+	// apply Burrows-Wheeler encoding, reading from standard input and writing to standard output
+    public static void encode() {
+    	String input = BinaryStdIn.readString();
+    	CircularSuffixArray csa = new CircularSuffixArray(input);
+    	int len = csa.length();
+    	
+    	// write original string index
+    	for (int i = 0; i < len; i++) {
+    		if (csa.index(i) == 0) {
+    			BinaryStdOut.write(i);
+    			break;
+    		}
+    	}
+    	
+    	// write letters in last column of sorted list
+    	for (int i = 0; i < len; i++) {
+    		int pos = (csa.index(i) + len - 1) % len;
+    		if (pos < 0) pos += len;
+    		BinaryStdOut.write(input.charAt(pos));
+    	}
+    }
+
+    // apply Burrows-Wheeler decoding, reading from standard input and writing to standard output
+    public static void decode() {
+    	int first = BinaryStdIn.readInt();
+    	String s = BinaryStdIn.readString();
+    	char[] t = s.toCharArray();
+    	int len = t.length;
+    	char[] firstCol = new char[len];
+    	
+    	
+    	for (int i = 0; i < len; i++) {
+    		firstCol[i] = t[i];
+    	}
+    	
+    	Arrays.sort(firstCol);
+    	
+    	int[] lookFromPos = new int[R]; // array storing the position to start looking from for every character
+    	int[] next = new int[len];
+    	
+    	for (int i = 0; i < len; i++) {
+    		next[i] = getNextForChar(firstCol[i], t, lookFromPos);
+    	}
+    	
+    	
+    }
+    
+    // Instance Variables
+    private static final int R = 256;
+    
+    // Private Methods
+    private static int getNextForChar(char c, char[] t, int[] lookFromPos) {
+    	for (int i = lookFromPos[c]; i < t.length; i++) {
+    		if (t[i] == c) {
+    			lookFromPos[c] = i + 1; // start looking from positions after i next time
+    			return i;
+    		}
+    	}
+    	
+    	throw new java.lang.IllegalArgumentException();
+    }
+}

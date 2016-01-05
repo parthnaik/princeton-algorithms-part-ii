@@ -1,0 +1,97 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class CircularSuffixArray {
+	// unit testing of the methods (optional)
+	public static void main(String[] args) {
+		
+	}
+	
+	private final String original;
+	
+	private final int len;
+	
+	private Integer[] index;
+	
+	public CircularSuffixArray(String s){
+		original = s;
+		len = s.length();
+		index = new Integer[original.length()];
+		for(int i = 0;i < original.length();i++)
+			index[i] = i;
+		prepare();
+	}
+	
+	public int length(){
+		return len;
+	}
+	
+	public int index(int i){
+		return index[i];
+	}
+	
+	private void prepare(){
+		Arrays.sort(index, new Comparator<Integer>() {
+			public int compare(Integer a,Integer b){
+				if(a.equals(b))
+					return 0;
+				else{
+					for(int i = 0;i < len;i++)
+						if(original.charAt((a + i) % len)
+								!= original.charAt((b + i) % len))
+								return original.charAt((a + i) % len) - original.charAt((b + i) % len);
+					return 0;
+				}
+			}
+		});
+	}
+	
+//	// circular suffix array of s
+//	public CircularSuffixArray(String s) {
+//		if (s == null) throw new java.lang.NullPointerException();
+//		this.s = s;
+//		len = s.length();
+//		index = new Integer[length()];
+//		
+//		for (int i = 0; i < length(); i++) {
+//			index[i] = i;
+//		}
+//		
+//		calculate();
+//	}
+//	
+//	// length of s
+//    public int length() {
+//    	return len;
+//    }
+//    
+//    // returns index of ith sorted suffix
+//    public int index(int i) {
+//    	if (i < 0 || i > length() - 1) throw new java.lang.IndexOutOfBoundsException();    	
+//    	return index[i];
+//    }
+//    
+//    // Instance Variables
+//    private final String s;
+//    private final int len;
+//    private Integer[] index;
+//    
+//    // Private Methods
+//    private void calculate() {
+//    	Arrays.sort(index, new Comparator<Integer>() {
+//    		public int compare(Integer a, Integer b) {
+//    			if (a.equals(b)) {
+//    				return 0;
+//    			} else {
+//    				for (int i = 0; i < len; i++) {
+//    					if (s.charAt(a + i) % len != s.charAt(b + i) % len) {
+//    						return s.charAt((a + i) % len) - s.charAt((b + i) % len);
+//    					}
+//    				}
+//    				
+//    				return 0;
+//    			}
+//    		}
+//    	});
+//    }
+}

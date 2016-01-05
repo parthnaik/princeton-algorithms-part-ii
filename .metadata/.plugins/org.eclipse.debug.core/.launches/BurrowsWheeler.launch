@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Week_5_Burrows_Wheeler/src/BurrowsWheeler.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="BurrowsWheeler"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Week_5_Burrows_Wheeler"/>
+</launchConfiguration>

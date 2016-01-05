@@ -1,0 +1,126 @@
+import java.util.Arrays;
+
+import edu.princeton.cs.algs4.BinaryStdIn;
+import edu.princeton.cs.algs4.BinaryStdOut;
+
+public class BurrowsWheeler {
+	// if args[0] is '-', apply Burrows-Wheeler encoding
+    // if args[0] is '+', apply Burrows-Wheeler decoding
+    public static void main(String[] args) {
+    	if      (args[0].equals("-")) encode();
+        else if (args[0].equals("+")) decode();
+    }
+	
+	// apply Burrows-Wheeler encoding, reading from standard input and writing to standard output
+    public static void encode() {
+    	String s = BinaryStdIn.readString();
+    	CircularSuffixArray csa = new CircularSuffixArray(s);
+    	
+    	// write original string index
+    	for (int i = 0; i < csa.length(); i++) {
+    		if (csa.index(i) == 0) {
+    			BinaryStdOut.write(i);
+    			break;
+    		}
+    	}
+    	
+    	// write letters in last column of sorted list
+    	for (int i = 0; i < s.length(); i++) {
+    		int pos = (csa.index(i) + csa.length() - 1) % csa.length();
+    		BinaryStdOut.write(s.charAt(pos));
+    	}
+    	 
+    	BinaryStdOut.close();
+    }
+    
+    public static void decode() {
+        int first = BinaryStdIn.readInt();
+        String s = BinaryStdIn.readString();
+        char[] input = s.toCharArray();
+        char[] sorted = new char[input.length];
+
+        for (int i = 0; i < input.length; i++)
+            sorted[i] = input[i];
+        
+        Arrays.sort(sorted);
+        
+        int []baseIndex = new int[R];
+        int []next = new int[input.length];
+
+        // First, construct the next array...
+        for (int i = 0; i < input.length; i++) {
+            next[i] = getNextForChar(sorted[i], input, baseIndex);
+        }
+
+        // show the string.
+        int i, ptr;
+        for (i = 0, ptr = first; i < next.length; i++, ptr = next[ptr]) {
+            BinaryStdOut.write(sorted[ptr], 8); 
+        }
+            
+        BinaryStdOut.close();
+        
+    }
+    
+    private static int getNextForChar(char c, char[] t, int[] lookFromPos)
+    {
+        for (int i = lookFromPos[c]; i < t.length; i++) {
+            if (t[i] == c) {
+                lookFromPos[c] = i + 1;
+                return i;
+            }
+        }
+
+        throw new java.lang.IllegalArgumentException();
+    }
+
+//    // apply Burrows-Wheeler decoding, reading from standard input and writing to standard output
+//    public static void decode() {
+//    	int first = BinaryStdIn.readInt();
+//    	String s = BinaryStdIn.readString();
+//    	char[] t = s.toCharArray();
+//    	int len = t.length;
+//    	char[] firstCol = new char[len];
+//    	
+//    	
+//    	for (int i = 0; i < len; i++) {
+//    		firstCol[i] = t[i];
+//    	}
+//    	
+//    	// First column is sorted
+//    	Arrays.sort(firstCol);
+//    	
+//    	// Construct next[] array
+//    	int[] lookFromPos = new int[R]; // array storing the position to start looking from for every character
+//    	int[] next = new int[len];
+//    	
+//    	for (int i = 0; i < len; i++) {
+//    		next[i] = getNextForChar(firstCol[i], t, lookFromPos);
+//    	}
+//    	
+//    	// Reconstruct string
+//    	int curr = first;
+//    	for (int i = 0; i < t.length; i++) {
+//    		char c = t[curr];
+//    		BinaryStdOut.write(c);
+//    		curr = next[curr];
+//    	}
+//    	
+//    	BinaryStdOut.close();
+//    }
+//    
+    // Instance Variables
+    private static final int R = 256;
+//    
+//    // Private Methods
+//    private static int getNextForChar(char c, char[] t, int[] lookFromPos) {
+//    	for (int i = lookFromPos[c]; i < t.length; i++) {
+//    		if (t[i] == c) {
+//    			lookFromPos[c] = i + 1; // start looking from positions after i next time
+//    			return i;
+//    		}
+//    	}
+//    	
+//    	throw new java.lang.IllegalArgumentException();
+//    }
+}

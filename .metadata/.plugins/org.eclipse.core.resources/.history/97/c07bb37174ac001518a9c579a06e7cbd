@@ -1,0 +1,56 @@
+import edu.princeton.cs.algs4.BinaryStdIn;
+import edu.princeton.cs.algs4.BinaryStdOut;
+import java.util.LinkedList;
+
+public class MoveToFront {
+	// if args[0] is '-', apply move-to-front encoding
+	// if args[0] is '+', apply move-to-front decoding
+	public static void main(String[] args) {
+		
+	}
+	
+	// apply move-to-front encoding, reading from standard input and writing to standard output
+	public static void encode() {
+		char[] ascii = ascii();
+		
+		while (!BinaryStdIn.isEmpty()) {
+			char ch = BinaryStdIn.readChar();
+			
+			for (int i = 0; i < R; i++) {
+				if (ascii[i] == ch) {
+					BinaryStdOut.write(i);
+					swap(ascii, 0, i);
+				}
+			}
+		}
+	}
+
+	// apply move-to-front decoding, reading from standard input and writing to standard output
+	public static void decode() {
+		char[] ascii = ascii();
+		
+		while (!BinaryStdIn.isEmpty()) {
+			
+		}
+	}
+	
+	// Instance Variables
+	private static final int R = 256;
+	
+	// Private Methods
+	private static LinkedList<char> ascii() {
+		char[] ascii = new char[R];
+		
+		for (char i = 0; i < R; i++) {
+			ascii[i] = i;
+		}
+		
+		return ascii;
+	}
+	
+	private static void swap(char[] a, int i, int j) {
+		char temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+}

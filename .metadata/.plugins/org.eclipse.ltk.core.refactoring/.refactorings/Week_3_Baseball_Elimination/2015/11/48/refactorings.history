@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;gameNode&apos; in &apos;BaseballElimination.buildGraphFor(...)&apos; to &apos;matchNode&apos;&#x0A;- Original project: &apos;Week_3_Baseball_Elimination&apos;&#x0A;- Original element: &apos;BaseballElimination.buildGraphFor(int).gameNode&apos;&#x0A;- Renamed element: &apos;gameNode&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;gameNode&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{BaseballElimination.java[BaseballElimination~buildGraphFor~I@gameNode!4512!4549!4516!4523!I!0!false" name="matchNode" references="true" stamp="1448229306569" version="1.0"/>
+</session>
